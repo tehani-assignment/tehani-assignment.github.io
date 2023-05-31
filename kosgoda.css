@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2f2f2;
+}
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+ 
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+/*nav bar*/
+nav {
+    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+    background-color: #333;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    nav .logo {
+        margin-left: 20px;
+      }
+      
+      nav .logo img {
+        height: 50px;
+      }
+    
+    nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    }
+    
+    nav li {
+    margin: 0 10px;
+    }
+    
+    nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+    text-decoration: underline;
+    }
+    
+    @media (max-width: 400px) {
+    nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    display: none;
+    }
+    
+    nav li {
+    margin: 0;
+    text-align: center;
+    }
+    
+    nav a {
+    padding: 10px 0;
+    display: block;
+    }
+    
+    nav ul.show {
+    display: flex;
+    }
+/*dropdown mobile queries*/
+    .dropdown-content {
+      position: static;
+      display: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    }
+    /*DROPDOWN*/
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 30px;
+      color: #fff;
+    }
+    .dropdown-content {
+      left: -40px;
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /*HEADER*/
+    header {
+      position: relative;
+      text-align: center;
+      height: 500px;
+      background: url('images/kosgoda-animated.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    /* Centered H1 text */
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffff;
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Media queries for mobile responsiveness */
+    @media (max-width: 768px) {
+      header {
+        height: 200px;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+    }
+/*SECTION*/
+
+
+.section-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color:#f2f2f2;
+  }
+  
+  .section-1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .about-us {
+    background-color: #e2dddd;
+    border-radius: 3%;
+    width: 100%;
+    text-align: center;
+    margin: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .about-us h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+  .about-us h2:hover{
+    color: #3BACB6;
+  }
+  
+  .picture {
+    width: 100%;
+    text-align: center;
+    padding: 5vh;
+  }
+  
+  .picture img {
+    border-radius: 70%;
+    max-width: 100%;
+    height: auto;
+  }
+  .picture:hover img {
+    filter: grayscale(100%);
+    transform: scale(1.1);
+  }
+  @media (min-width: 768px) {
+    .section-1 {
+      flex-direction: row;
+    }
+    
+    .about-us {
+      width: 50%;
+      margin-bottom: 0;
+    }
+    
+    .picture {
+      width: 50%;
+      text-align: right;
+    }
+  }
+/*IMG SLIDER*/
+.animated-images-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.animated-image-container {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.animated-image-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  animation: slide-animation 2s infinite;
+}
+
+@keyframes slide-animation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .animated-image-container {
+    flex-basis: calc(33.33% - 20px);
+    margin: 10px;
+  }
+}
+/*CONTENT BOXES*/
+      /* Review section styles */
+      .reviews-section {
+        background-color: #e2dddd;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        text-align: center;
+        border: solid 1px #333;
+      }
+  
+      /* Reviewer name styles */
+      .review-h2{
+        text-align: center;
+      }
+      .review{
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+  
+      /* Review content styles */
+      .reviews-content {
+        font-size: 16px;
+        color: #555555;
+      }
+  
+      /* Media query for mobile responsiveness */
+      @media screen and (max-width: 600px) {
+        .reviews-section {
+          padding: 10px;
+        }
+        .review {
+          font-size: 16px;
+        }
+        .reviews-content {
+          font-size: 14px;
+        }
+      }
+
+    /*FOOTER*/
+    a{
+        text-decoration: none;
+        color: #fff;
+        transition: .5s;
+      }
+      ul ,li {
+        list-style-type: none;
+      }
+      footer{
+        background-color: #333;
+        color: #fff;
+      }
+      .footer_info{
+        width: 90%;
+        padding: 50px 0;
+        margin: 0 auto;
+        display: flex;
+      }
+      .footer_info h2{
+        color: #fff;
+      margin-bottom: 20px;
+      }
+      .footer_info .footer_width{
+        padding: 0 15px;
+      }
+      .link{
+         width: 20%;
+      }
+      .about, .locations{
+        width: 40%;
+      } 
+      .link ul li{
+        display: block;
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+      .link ul li a:hover{
+        color: #3BACB6;
+      }
+      .locations ul li{
+        display: flex;
+        margin-bottom: 15px;
+        align-items: center;
+      
+      }
+      .locations ul li span{
+      margin-right: 15px;
+      }
+      /*Media queries*/
+      @media screen and (max-width:992px){
+      .about ,.locations{
+        width: 35%;
+      }
+      .link{
+        width: 30%;
+      }
+      }
+      
+      @media screen and (max-width:767px){
+      .about, .link, .locations{
+        margin-bottom: 30px;
+        width: 100%;
+      }
+      .footer_info{
+        flex-direction: column;
+      }
+      }

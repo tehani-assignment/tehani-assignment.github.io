@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+nav {
+    width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+    background-color: #333;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    nav .logo {
+        margin-left: 20px;
+      }
+      
+      nav .logo img {
+        height: 50px;
+      }
+    
+    nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    }
+    
+    nav li {
+    margin: 0 10px;
+    }
+    
+    nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+    text-decoration: underline;
+    }
+    
+    @media (max-width: 400px) {
+    nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    display: none;
+    }
+    
+    nav li {
+    margin: 0;
+    text-align: center;
+    }
+    
+    nav a {
+    padding: 10px 0;
+    display: block;
+    }
+    
+    nav ul.show {
+    display: flex;
+    }
+    /*dropdown mobile queries*/
+    .dropdown-content {
+      position: static;
+      display: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    }
+    /*DROPDOWN*/
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 30px;
+      color: #fff;
+    }
+    .dropdown-content {
+      left: -40px;
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    /*MAIN IMAGE */
+.main-image {
+    position: relative;
+    background: url(images/turtle.jpg) no-repeat center;
+    background-size: cover;
+    height: 500px;
+    overflow: hidden;
+}
+section{
+  background-color: #F1F6F9;
+    }
+
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+h2{
+  color: #333;
+  text-align: center;
+  text-decoration: underline;
+ 
+}
+/*THREATS OVERVIEW*/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.box {
+  width: calc(25% - 20px);
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: lightblue;
+  color: white;
+  border-radius: 10px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 100%;
+  }
+}
+/*threats section */
+.threat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .threat img {
+    width: 400px;
+    height: 300px;
+    margin-right: 20px;
+    margin-left: 30px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .threat img:hover {
+    opacity: 0.8;
+  }
+  
+  .threat p {
+    
+    font-size: 18px;
+    line-height: 1.4;
+    color: #444;
+  }
+  .preventions {
+    
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    height: 480px;
+    width: 700px;
+    margin-right: 20px;
+    display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 750px;
+
+  }
+  /*adds grey background hover*/
+  .preventions li:hover {
+   cursor: pointer;
+   background-color: #ddd;
+  }
+  
+  .preventions ul {
+    margin: 10px;
+    padding: 4px;
+    list-style:inside;
+  }
+  
+  .preventions li {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+    
+  }
+  
+  .preventions li:last-child {
+    border-bottom: none;
+
+  }
+  .conservation-link {
+    margin-left: 900px;
+    color: #008CBA;
+    text-decoration: none;
+    font-weight: bold;
+  }
+   
+  .conservation-link:hover {
+    text-decoration: underline;
+  }
+
+
+
+
+
+/*MEDIA QUERIES*/
+/* targets screens with a maximum width of 768 pixels or less.*/
+  @media (max-width: 768px) {
+    .threat {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .threat img {
+      width: 100%;
+      height: auto;/*means that the image will retain its original aspect ratio when displayed on the web page. 
+                    This ensures that the image is not distorted or stretched vertically or horizontally.*/
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    .preventions {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .conservation-link {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  /*FOOTER*/
+  a{
+    text-decoration: none;
+    color: #fff;
+    transition: .5s;
+  }
+  .footer_info ul ,li {
+    list-style-type: none;
+  }
+  footer{
+    background-color: #333;
+    color: #fff;
+  }
+  .footer_info{
+    width: 90%;
+    padding: 50px 0;
+    margin: 0 auto;
+    display: flex;
+  }
+  .footer_info h2{
+    color: #fff;
+  margin-bottom: 20px;
+  }
+  .footer_info .footer_width{
+    padding: 0 15px;
+  }
+  .link{
+     width: 20%;
+  }
+  .about, .locations{
+    width: 40%;
+  } 
+  .link ul li{
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  .link ul li a:hover{
+    color: #3BACB6;
+  }
+  .locations ul li{
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+  
+  }
+  .locations ul li span{
+  margin-right: 15px;
+  }
+  /*Media queries*/
+  @media screen and (max-width:992px){
+  .about ,.locations{
+    width: 35%;
+  }
+  .link{
+    width: 30%;
+  }
+  }
+  
+  @media screen and (max-width:767px){
+  .about, .link, .locations{
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  .footer_info{
+    flex-direction: column;
+  }
+  }
