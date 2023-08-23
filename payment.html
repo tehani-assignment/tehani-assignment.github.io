@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="payment.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.0/dist/alpine.min.js"></script>
+
+  </head>
+<body>
+  <video autoplay muted loop id="background-video">
+    <source src="images/bubble_-_45951 (720p).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+    <!--header-->
+
+<div class="background">
+    <section>
+    <div class="content">
+        <h2>PAYMENT DETAILS</h2>
+        <p>Kindly fill out the following the necessary information in order to proceed.  </p>
+    
+    </div>
+    </section> 
+    
+    
+    <!--navbar-->
+    <nav>
+        <a href="index.html" class="logo"><img src="images/IMG-1886.PNG" alt="Logo"></a>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="ticket.html">TICKETS</a></li>
+          <li><a href="details.html">DETAILS</a></li>
+    
+         <!--dropdown-->
+          <li class="dropdown">
+            <a href="">LOCATIONS</a>
+            <div class="dropdown-content">
+              <a href="hikkaduwa.html">HIKKADUWA</a>
+              <a href="kosgoda.html">KOSGODA</a>
+              <a href="bentota.html">BENTHOTA</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      </div> <!--backg-->
+      
+      <br><br>
+
+ <div class="outer-container">
+  <!--Payment -->
+  <div class="payment-wrapper">
+
+
+
+    <a href="https://www.shift4shop.com/credit-card-logos.html"><img alt="Credit Card Logos" title="Credit Card Logos" src="https://www.shift4shop.com/images/credit-card-logos/cc-lg-4.png" width="250" height="auto"/></a>
+    <hr style="border:1px solid #ccc; margin: 0 15px;">
+
+    <div class="card-details">
+      <form id="paymentForm" onsubmit="return validateForm()">
+        <p>Card number</p>
+        <div class="c-number" id="c-number">
+          <input id="number" class="cc-number" placeholder="Card number" maxlength="19" required>
+          <i class="fa-solid fa-credit-card" style="margin: 0;"></i>
+        </div>
+
+        <div class="c-details">
+          <div>
+            <p>Expiry date</p>
+            <input id="e-date" class="cc-exp" placeholder="MM/YY" required maxlength="5" required>
+          </div>
+          <div>
+            <p>CVV</p>
+            <div class="cvv-box" id="cvv-box">
+              <input id="cvv" class="cc-cvv" placeholder="CVV" required maxlength="3" required>
+              <i class="fa-solid fa-circle-question" title="3 digits on the back of the card" style="cursor: pointer;"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-name"> 
+          <p>Card Name</p>
+          <input type="text" placeholder="John Doe" id="cardName" required> 
+      </div>
+      <div class="form-group">
+        <div x-data="{ totalPayable: JSON.parse(localStorage.getItem('TotalPayable')) || 0 }">
+          <div class="form-group">
+              <button id="btnGoToConfirmation" x-text="'Pay $' + totalPayable + ''" ></button>
+          </div>
+      </div>
+        </div>
+      </form>
+    </div>
+  </div>
+ <!--Summary-->
+<div class="container">
+ <div class="summary" x-data="checkout">
+  <h3>Summary of your order</h3>
+  <table class="summary-table">
+    <tr>
+      <td>Name</td>
+      <td x-text="guest.fullName"></td>
+  </tr>
+
+  
+          <tr>
+              <td>Date</td>
+              <td><div x-text="SavedDate"></td>
+          </tr>
+
+         <tr>
+    <td>Mobile</td>
+    <td x-text="guest.mobile"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td x-text="guest.email"></td>
+    </tr>
+          <tr>
+              <td>Selected Times</td>
+              <td>
+                  <template x x-for="timeIndex in SavedTimeslot">
+                      <div x-text="openTimes[timeIndex].title"></div>
+                  </template>
+              </td>
+          </tr>
+
+          <tr>
+              <td>Duration</td>
+              <td x-text="SavedTimeslot.length+'Hrs'"></td>
+          </tr>
+
+          <tr class="tablehead1">
+             <td>Tickets</td>
+             <td>Charges</td>
+          </tr>
+          <template x-for="guestIndex in ticketTypes">
+          <tr>
+              <td><div x-text="guestIndex.name"></div></td>
+              <td><div x-text="'$'+guestIndex.total"></div></td>
+
+          </tr>
+
+      </template>
+      <tr>
+          <td>Total Payable</td>
+          <td x-text="'$'+TotalPayable"></td>
+      </tr>
+      </table>
+</div>
+</div>
+      
+	
+
+          
+    
+    </div>
+  
+        
+       <br><br> 
+     <!--footer-->
+     <div class="footer-container">
+
+     <footer>
+      <div class="footer_info">
+      <div class="footer_width about">
+      <h2>About</h2>
+      <p>
+        The Sri Lanka Turtle Hatchery is a major sanctuary that contributes significantly to the preservation and maintenance of the diversified sea turtle population in the nation.
+        The hatchery tirelessly protects sea turtle nests against predation and theft thanks to its enthusiastic and committed employees and volunteers, guaranteeing the survival of 
+        these amazing animals. The hatchery cares for the eggs and monitors hatching, ensuring that the young are released safely into the ocean and helping to protect these magnificent sea turtles and the sensitive marine habitats they call home. 
+       </p> 
+    </div>
+      <div class="footer_width link">
+       <h2>Quick Links</h2>
+       <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="threats.html">Threats</a></li>
+          <li><a href="species.html">Species</a></li>
+          <li><a href="purchase.html">Purchase or donate</a></li>
+    
+       </ul>
+      </div>
+    
+      <div class-"footer_width locations">
+      <h2>Locations</h2>
+      <ul>
+        <li>
+           <p><a href="hikkaduwa.html">
+          <span><i class="fas fa-map-marker-alt"></i></span>
+            Hikkaduwa Turtle Hatchery
+          </p>
+        </a>
+        </li>
+    
+        <li>
+          <p><a href="kosgoda.html">
+          <span><i class="fas fa-map-marker-alt"></i></span>
+            Kosgoda Turtle Hatchery
+          </p>
+        </a>
+        </li>
+    
+        <li>
+          <p><a href="bentota.html">
+          <span><i class="fas fa-map-marker-alt"></i></span>
+            Bentota Turtle Hatchery
+          </p>
+        </a>
+        </li>
+    
+      </ul>
+     </div>
+    </div>
+
+
+
+
+    </footer>
+
+    </div>
+
+<script>
+ let tColorA = document.getElementById('tColorA'),
+tColorB = document.getElementById('tColorB'),
+tColorC = document.getElementById('tColorC'),
+iconA = document.querySelector('.fa-credit-card'),
+iconB = document.querySelector('.fa-building-columns'),
+iconC = document.querySelector('.fa-wallet'),
+cDetails = document.querySelector('.card-details');
+
+
+function doFun(){
+ tColorA.style.color = "greenyellow";
+ tColorB.style.color = "#444";
+ tColorC.style.color = "#444";
+ iconA.style.color = "greenyellow";
+ iconB.style.color = "#aaa";
+ iconC.style.color = "#aaa";
+ cDetails.style.display = "block";
+}
+function doFunA(){
+ tColorA.style.color = "#444";
+ tColorB.style.color = "greenyellow";
+ tColorC.style.color = "#444";
+ iconA.style.color = "#aaa";
+ iconB.style.color = "greenyellow";
+ iconC.style.color = "#aaa";
+ cDetails.style.display = "none";
+}
+function doFunB(){
+ tColorA.style.color = "#444";
+ tColorB.style.color = "#444";
+ tColorC.style.color = "greenyellow";
+ iconA.style.color = "#aaa";
+ iconB.style.color = "#aaa";
+ iconC.style.color = "greenyellow";
+ cDetails.style.display = "none";
+}
+let cNumber = document.getElementById('number');
+cNumber.addEventListener('keyup', function(e){
+ let num = cNumber.value;
+
+ let newValue = '';
+ num = num.replace(/\s/g, '');
+ for(var i = 0; i < num.length; i++) {
+  if(i%4 == 0 && i > 0) newValue = newValue.concat(' ');
+  newValue = newValue.concat(num[i]);
+  cNumber.value = newValue;
+ }
+
+ let ccNum = document.getElementById('c-number');
+ if(num.length<16){
+  ccNum.style.border="1px solid red";
+ }else{
+  ccNum.style.border="1px solid greenyellow";
+ }
+});
+
+let eDate = document.getElementById('e-date');
+eDate.addEventListener('keyup', function( e ){
+
+ let newInput = eDate.value;
+
+ if(e.which !== 8) {
+  var numChars = e.target.value.length;
+  if(numChars == 2){
+   var thisVal = e.target.value;
+   thisVal += '/';
+   e.target.value = thisVal;
+   console.log(thisVal.length)
+  }
+ }
+
+ if(newInput.length<5){
+  eDate.style.border="1px solid red";
+ }else{
+  eDate.style.border="1px solid greenyellow";
+ }
+});
+
+let cvv = document.getElementById('cvv');
+cvv.addEventListener('keyup', function(e){
+
+ let elen = cvv.value;
+ let cvvBox = document.getElementById('cvv-box');
+ if(elen.length<3){
+  cvvBox.style.border="1px solid red";
+ }else{
+  cvvBox.style.border="1px solid greenyellow";
+ }
+});
+
+
+
+
+function validateForm() {
+    let cNumber = document.getElementById('number');
+    let eDate = document.getElementById('e-date');
+    let cvv = document.getElementById('cvv');
+    let cardName = document.getElementById('cardName');
+    
+    if (!cNumber.value || !eDate.value || !cvv.value || !cardName.value) {
+        alert('Please fill in all required fields.');
+        return false;
+    }
+    return true;
+}
+
+
+
+
+ // Button function to navigate to the confirmation page
+document.getElementById('btnGoToConfirmation').addEventListener('click', function() {
+  event.preventDefault(); 
+    if (validateForm()) {
+    // Redirect to the confirmation page
+    window.location.href = 'confirmation.html';
+    }
+});
+</script>
+
+</body>
+</html>
